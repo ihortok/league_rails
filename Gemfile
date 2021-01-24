@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'jbuilder', '~> 2.7'
 gem 'lograge', '~> 0.11.2'
