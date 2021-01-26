@@ -1,1 +1,18 @@
 h1 Teams
+
+table
+  thead
+    tr
+      th
+      th Name
+      th League
+      th City
+  tbody
+    - @teams.each do |team|
+      tr
+        td
+          = link_to team
+            = team.id
+        td = team.name
+        td = team.league.name
+        td = team.city.name
