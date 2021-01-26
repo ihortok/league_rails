@@ -1,1 +1,24 @@
-h1 Player
+table
+  tr
+    th First name
+    td = @player.participant.first_name
+  tr
+    th Last name
+    td = @player.participant.last_name
+  tr
+    th Age
+    td = @player.age
+  tr
+    th Country
+    td = @player.participant.country.name
+  tr
+    th Talent
+    td = @player.talent
+  tr
+    th Position
+    td = @player.position
+  tr
+    th Team
+    td = @player.participant.teams.last.name
+
+= link_to 'back', players_path
