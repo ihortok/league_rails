@@ -1,1 +1,12 @@
-h1 League
+table
+  tr
+    th Name
+    td = @league.name
+  tr
+    th League
+    td = @league.team_size
+  tr
+    th City
+    td = @league.country.name
+
+= link_to 'back', leagues_path

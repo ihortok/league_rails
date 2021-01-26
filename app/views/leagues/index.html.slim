@@ -1,1 +1,18 @@
 h1 Leagues
+
+table
+  thead
+    tr
+      th
+      th Name
+      th Team size
+      th Country
+  tbody
+    - @leagues.each do |league|
+      tr
+        td
+          = link_to league
+            = league.id
+        td = league.name
+        td = league.team_size
+        td = league.country.name
