@@ -1,5 +1,5 @@
 class LeaguesController < ApplicationController
-  before_action :set_leagues, only: :show
+  before_action :set_league, only: :show
 
   def index
     @leagues = League.all
@@ -9,7 +9,7 @@ class LeaguesController < ApplicationController
 
   private
 
-  def set_leagues
+  def set_league
     @league = League.find(params[:id])
   end
 end
