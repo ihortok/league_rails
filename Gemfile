@@ -3,11 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'activeadmin', '~> 2.9'
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+gem 'formtastic', '~> 4.0.0.rc1'
 gem 'jbuilder', '~> 2.7'
 gem 'lograge', '~> 0.11.2'
 gem 'pg', '~> 1.1'
