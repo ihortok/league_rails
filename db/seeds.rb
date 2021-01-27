@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+if Rails.env.development? && AdminUser.find_by(email: 'admin@example.com').nil?
+  AdminUser.create!(
+    email: 'admin@example.com',
+    password: 'STRONG_password',
+    password_confirmation: 'STRONG_password'
+  )
+end
+
 2.times { Country.all.size < 2 ? Country.create(name: Faker::Address.country) : break }
 5.times { City.all.size < 5 ? City.create(name: Faker::Address.city, country: Country.all.sample) : break }
 
