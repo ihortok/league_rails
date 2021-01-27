@@ -29,13 +29,15 @@ end
 Team.all.each do |team|
   contracts = team.contracts.active
 
-  next if contracts.size == 11
+  team_size = team.league.team_size
+
+  next if contracts.size == team_size + 1
 
   contracts.each { |c| c.update!(end_date: Time.current) } if contracts.any?
 
   team_size = team.league.team_size
 
-  team_size.times do |i|
+  (team_size + 1).times do |i|
     participant = Participant.create(
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
@@ -43,13 +45,15 @@ Team.all.each do |team|
       country: Country.all.sample
     )
 
-    Player.create(
-      talent: Faker::Number.between(from: 55, to: 95),
-      position: Faker::Number.between(from: 0, to: 3),
-      participant: participant
-    )
+    position = i < team_size ? :player : :coach
 
-    position = i < team_size - 1 ? :player : :coach
+    if position == :player
+      Player.create(
+        talent: Faker::Number.between(from: 55, to: 95),
+        position: Faker::Number.between(from: 0, to: 3),
+        participant: participant
+      )
+    end
 
     Contract.create(
       participant: participant,
